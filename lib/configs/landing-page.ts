@@ -8,27 +8,27 @@ import IconX from "@/public/assets/icons/x.svg";
 export const LANDING_PAGE_HEADER_ITEMS = [
   {
     label: "ROOM & SUITES",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.RoomAndSuites,
   },
   {
     label: "WYNN REWARDS",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.WynnRewards,
   },
   {
     label: "OFFERS",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.Offers,
   },
   {
     label: "DINING",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.Dining,
   },
   {
     label: "ENTERTAINMENT",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.Entertainment,
   },
   {
     label: "MEETING & EVENTS",
-    href: PAGE_ROUTES.NotFound,
+    href: PAGE_ROUTES.MeetingAndEvents,
   },
 ];
 
