@@ -16,4 +16,34 @@
   background: #f7f7f7;
   --font-avenir: "Avenir LT", sans-serif;
   --font-bigcaslon: "Big Caslon", serif;
+
+  --color-brown: #5a3a27;
+  --color-light-brown: #ad704c;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+/** Animations **/
+.animate-link-underline {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.animate-link-underline::after {
+  background-color: var(--color-light-brown);
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: transform 0.25s ease-out;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  width: 100%;
+}
+
+.animate-link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
