@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Avenir LT";
+  src: url("/fonts/Avenir_LT_Std_65_Medium.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Big Caslon";
+  src: url("/fonts/Big_Caslon_Regular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
-  background: #ffffff;
+  background: #f7f7f7;
+  --font-avenir: "Avenir LT", sans-serif;
+  --font-bigcaslon: "Big Caslon", serif;
 }
