@@ -15,19 +15,19 @@ describe("Footer component", () => {
     renderFooter();
   });
 
-  it("checks if footer links is available", () => {
+  it("shows that footer links is available", () => {
     const links = screen.getAllByRole("link");
     expect(links).not.toBeFalsy();
   });
 
-  it("checks each link is in the document", () => {
+  it("renders each link in the document", () => {
     const links = screen.getAllByRole("link");
     links.forEach((link) => {
       expect(link).toBeInTheDocument();
     });
   });
 
-  it("renders the footer social icons", () => {
+  it("renders the footer social icon buttons", () => {
     const icons = screen.getAllByRole("button");
     icons.forEach((link) => {
       expect(link).toBeInTheDocument();
