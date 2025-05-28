@@ -9,6 +9,14 @@ const system = createSystem(defaultConfig, {
         body: { value: "var(--font-avenir)" },
         heading: { value: "var(--font-bigcaslon)" },
       },
+      colors: {
+        brandGreen: {
+          solid: { value: "var(--color-green)" },
+          contrast: { value: "var(--color-white)" },
+          muted: { value: "var(--color-green)" },
+          fg: { value: "var(--color-green)" },
+        },
+      },
     },
   },
 });
