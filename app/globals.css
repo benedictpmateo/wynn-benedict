@@ -13,8 +13,6 @@
 }
 
 :root {
-  background: #f7f7f7;
-
   --font-avenir: "Avenir LT", sans-serif;
   --font-bigcaslon: "Big Caslon", serif;
 
@@ -23,8 +21,16 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-border: #e8e9e9;
+  --color-border-dark: #383c3e;
+  --color-text-100: #667085;
+  --color-text-200: #565759;
+  --color-text-900: #1d1f22;
   --color-placeholder: #999999;
   --color-green: #006f62;
+  --color-error: #b3261e;
+
+  background: #f7f7f7;
+  color: var(--color-black);
 }
 
 /** Animations **/
