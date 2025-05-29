@@ -15,11 +15,16 @@ const CTAJoinNewsletter = () => {
     <Box transition="all" bg="white">
       <Box maxW={MAX_W_CONTAINER} mx="auto" px="70px" py="20px">
         <Flex justify="space-between" align="center">
-          <Text fontFamily="heading" fontSize="21px" lineHeight="24px">
+          <Text
+            fontFamily="heading"
+            fontSize="21px"
+            lineHeight="24px"
+            color="var(--color-text-900)"
+          >
             Get News & Updates
           </Text>
 
-          <Text maxW="370px">
+          <Text maxW="370px" color="var(--color-text-200)">
             Get latest developments and exciting news on how we are shaping the
             future!
           </Text>
