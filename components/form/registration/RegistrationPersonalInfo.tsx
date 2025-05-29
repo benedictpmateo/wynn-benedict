@@ -1,5 +1,7 @@
+import Form from "@/components/common/Form";
 import { Box, Button } from "@chakra-ui/react";
-import RegistrationFormTitle from "./RegistrationFormTitle";
+import { useForm } from "react-hook-form";
+import { registrationFormBlocks } from "./registration.const";
 
 type RegistrationPersonalInfoProps = {
   onClickNext: () => void;
@@ -8,12 +10,17 @@ type RegistrationPersonalInfoProps = {
 const RegistrationPersonalInfo: React.FC<RegistrationPersonalInfoProps> = ({
   onClickNext,
 }) => {
+  const form = useForm();
+
+  const onSubmit = () => {
+    //
+  };
+
   return (
-    <Box>
-      <Box mb="40px">
-        <RegistrationFormTitle title="Personal Info" />
-      </Box>
-      <Box>
+    <form onSubmit={form.handleSubmit(onSubmit)}>
+      <Form control={form.control} blocks={registrationFormBlocks} />
+
+      <Box mt="44px">
         <Button
           flex={1}
           type="button"
@@ -26,7 +33,7 @@ const RegistrationPersonalInfo: React.FC<RegistrationPersonalInfoProps> = ({
           NEXT
         </Button>
       </Box>
-    </Box>
+    </form>
   );
 };
 
