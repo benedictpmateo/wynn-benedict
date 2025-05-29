@@ -1,5 +1,5 @@
 import { Box, Button, Flex, RadioCard, Text } from "@chakra-ui/react";
-import FormGroupTitle from "@/components/common/Form/FormGroupTitle";
+import FormGroupTitle from "@/components/Form/FormGroupTitle";
 import { sendCodeOptions } from "./registration.const";
 
 type RegistrationSendAndVerifyOTPProps = {

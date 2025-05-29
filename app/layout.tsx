@@ -1,6 +1,15 @@
 "use client";
-import { ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraProvider,
+  createSystem,
+  defaultConfig,
+} from "@chakra-ui/react";
 import "./globals.css";
+import Header from "@/components/Header";
+import { MAX_W_CONTAINER } from "@/lib/configs/layout";
+import CTAJoinNewsletter from "@/components/CTAJoinNewsletter";
+import Footer from "@/components/Footer";
 
 const system = createSystem(defaultConfig, {
   theme: {
@@ -27,7 +36,16 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning>
       <body>
-        <ChakraProvider value={system}>{children}</ChakraProvider>
+        <ChakraProvider value={system}>
+          <Box>
+            <Header />
+            <Box mx="auto" maxW={MAX_W_CONTAINER} minH={400}>
+              {children}
+            </Box>
+            <CTAJoinNewsletter />
+            <Footer />
+          </Box>
+        </ChakraProvider>
       </body>
     </html>
   );

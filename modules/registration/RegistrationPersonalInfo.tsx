@@ -1,4 +1,4 @@
-import Form from "@/components/common/Form";
+import Form from "@/components/Form";
 import { Box, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { registrationFormBlocks } from "./registration.const";

@@ -15,9 +15,9 @@ const Input: React.FC<InputProps> = React.forwardRef<
       ref={ref}
       {...props}
       css={{
-        bg: "var(--color-white)",
         "--chakra-border-color": "var(--color-border)",
         "--error-color": "var(--color-error)",
+        bg: "var(--color-white)",
         fontSize: "16px",
         height: "60px",
         lineHeight: "24px",

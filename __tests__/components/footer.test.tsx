@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import Footer from "@/components/layout/footer";
+import Footer from "@/components/Footer";
 
 const renderFooter = () =>
   render(

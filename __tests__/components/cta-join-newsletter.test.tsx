@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import CTAJoinNewsletter from "@/components/layout/cta-join-newsletter";
+import CTAJoinNewsletter from "@/components/CTAJoinNewsletter";
 
 const renderComponent = () =>
   render(
