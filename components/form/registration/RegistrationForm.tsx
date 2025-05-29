@@ -20,19 +20,26 @@ const RegistrationForm = () => {
   const onClickBack = () => {
     if (currentStep > 1) {
       setCurrentStep((step) => step - 1);
+      window?.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const onClickNext = () => {
     if (currentStep < MAX_STEP) {
       setCurrentStep((step) => step + 1);
+      window?.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   return (
     <VStack direction="column" gap="40px">
       <Box w="full">
-        <Flex align="start" justify="space-between" mb="24px">
+        <Flex
+          align="start"
+          justify="space-between"
+          mb="24px"
+          color="var(--color-text-900)"
+        >
           <Text fontFamily="heading" fontSize="37px" lineHeight="42px">
             Registration
           </Text>
@@ -41,7 +48,7 @@ const RegistrationForm = () => {
           </Text>
         </Flex>
 
-        <Text fontSize="16px">
+        <Text fontSize="16px" color="var(--color-black)">
           Please enter below information to create your account.
         </Text>
       </Box>
