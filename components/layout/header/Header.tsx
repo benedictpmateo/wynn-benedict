@@ -39,6 +39,7 @@ const Header = () => {
               py="2"
               h="auto"
               className="animate-link-underline hover-brown"
+              color="var(--color-black)"
             >
               <Link href={headerItem.href}>
                 <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
