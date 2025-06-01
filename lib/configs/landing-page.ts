@@ -1,9 +1,9 @@
-import { PAGE_ROUTES } from "./routes";
-import IconFacebook from "@/public/assets/icons/facebook.svg";
 import IconAndroid from "@/public/assets/icons/android.svg";
 import IconApple from "@/public/assets/icons/apple.svg";
+import IconFacebook from "@/public/assets/icons/facebook.svg";
 import IconInstagram from "@/public/assets/icons/instagram.svg";
 import IconX from "@/public/assets/icons/x.svg";
+import { PAGE_ROUTES } from "./routes";
 
 export const LANDING_PAGE_HEADER_ITEMS = [
   {

@@ -1,0 +1,50 @@
+.phone__root {
+  background: var(--color-white);
+  font-size: 16px;
+  height: 60px;
+  line-height: 24px;
+  padding: 0 20px;
+  border-radius: 4px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+}
+
+.phone__root:is([data-invalid], [aria-invalid="true"], [data-state="invalid"]) {
+  border: 1.5px solid var(--color-error);
+}
+
+.phone__root:is(:focus, [data-focus]) {
+  border-color: blue;
+}
+
+.phone__input {
+  width: 100%;
+  flex: 1;
+  outline: 0;
+}
+
+.phone__input-invalid {
+  border: 1.5px solid var(--color-error);
+  color: var(--color-error);
+}
+
+.select__trigger {
+  --chakra-border-color: var(--color-border);
+  --error-color: var(--color-error);
+  --mix-color: var(--color-placeholder);
+  --chakra-colors-fg-muted: var(--color-placeholder);
+  background: var(--color-white);
+  font-size: 16px;
+  height: 60px;
+  line-height: 24px;
+  padding: 18px 20px;
+  border-radius: 4px;
+}
+
+.select__trigger:is(
+    [data-invalid],
+    [aria-invalid="true"],
+    [data-state="invalid"]
+  ) {
+  border-width: 1.5px;
+}
