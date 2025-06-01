@@ -1,3 +1,5 @@
+import { SelectItemType } from "@/components/InputSelect/select.types";
+
 export type FormBlockType = {
   label: string;
   fields: FormFieldType[];
@@ -10,11 +12,11 @@ export type FormFieldType = {
   tooltip?: string;
   componentType: FieldComponentTypeEnum;
   validationPattern?: FieldValidationPatternEnum;
-  options?: string[];
+  options?: SelectItemType[];
   /**
    * @description Will override options by using a defined dictionary
    */
-  optionsDictioanry?: FieldOptionDictionaryEnum;
+  optionsDictionary?: FieldOptionDictionaryEnum;
   mandatory?: boolean;
   /**
    * @description Default set to 2. Form grid has 2 columns, if columnSpan is 1,
@@ -24,9 +26,10 @@ export type FormFieldType = {
 };
 
 export enum FieldComponentTypeEnum {
-  TextInput = "TextInput",
-  SelectInput = "SelectInput",
-  PhoneInput = "PhoneInput",
+  InputText = "InputText",
+  InputSelect = "InputSelect",
+  InputPhone = "InputPhone",
+  InputCheckbox = "InputCheckbox",
 }
 
 export enum FieldValidationPatternEnum {
