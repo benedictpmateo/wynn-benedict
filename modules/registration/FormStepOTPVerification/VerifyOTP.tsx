@@ -1,5 +1,7 @@
 "use client";
 import InputOTP from "@/components/InputOTP";
+import { toaster } from "@/components/Toaster";
+import usePostUserOTP from "@/lib/api/usePostUserOTP";
 import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,7 +24,7 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   onClickNext,
 }) => {
   const { currentForm } = useRegistrationForm();
-
+  const { mutate: submitVerifyOTP, isPending } = usePostUserOTP();
   const form = useForm({
     defaultValues: {
       otpCode: [],
@@ -31,8 +33,21 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   });
 
   const onSubmit = (values: VerifyOTPFormData) => {
-    console.log(values);
-    onClickNext();
+    submitVerifyOTP(
+      {
+        email: currentForm?.email,
+        otpCode: values.otpCode.join(""),
+      },
+      {
+        onSuccess() {
+          toaster.create({
+            title: "Successfully verified code",
+            type: "success",
+          });
+          onClickNext();
+        },
+      }
+    );
   };
 
   const onClickResend = () => {
@@ -79,7 +94,7 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
           </Text>
         </Box>
 
-        <Flex gap="40px">
+        <Flex gap={{ base: "12px", md: "40px" }}>
           <Button
             flex={1}
             type="button"
@@ -94,10 +109,10 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
           <Button
             flex={1}
             type="submit"
-            minW="217px"
             colorPalette="brandGreen"
             h="56px"
             fontSize="16px"
+            loading={isPending}
           >
             NEXT
           </Button>

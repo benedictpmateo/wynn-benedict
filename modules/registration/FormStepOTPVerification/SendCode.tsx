@@ -1,4 +1,6 @@
 "use client";
+import { toaster } from "@/components/Toaster";
+import usePostUserRegistration from "@/lib/api/usePostUserRegistration";
 import { Box, Button, Flex, RadioCard, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useController, useForm } from "react-hook-form";
@@ -17,6 +19,7 @@ type SendCodeProps = {
 
 const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
   const { currentForm } = useRegistrationForm();
+  const { mutate: submitUser, isPending } = usePostUserRegistration();
 
   const form = useForm({
     defaultValues: {
@@ -39,7 +42,21 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
         console.log(currentForm.email);
         break;
     }
-    onClickNext(values.sendCode as SendCodeTypeValue);
+    submitUser(
+      {
+        ...currentForm,
+        sendTo: values.sendCode as SendCodeTypeValue,
+      },
+      {
+        onSuccess() {
+          toaster.create({
+            title: "Successfully sent code",
+            type: "success",
+          });
+          onClickNext(values.sendCode as SendCodeTypeValue);
+        },
+      }
+    );
   };
 
   return (
@@ -69,7 +86,11 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
               value={field.value}
               onValueChange={(radio) => field.onChange(radio.value)}
             >
-              <Flex justify="center" gap="20px">
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                justify="center"
+                gap="20px"
+              >
                 {sendCodeOptions.map(({ value, label }) => (
                   <RadioCard.Item
                     key={value}
@@ -102,7 +123,7 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
           </Flex>
         </Box>
 
-        <Flex gap="40px">
+        <Flex gap={{ base: "12px", md: "40px" }}>
           <Button
             flex={1}
             type="button"
@@ -117,9 +138,9 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
           <Button
             flex={1}
             type="submit"
-            minW="217px"
             colorPalette="brandGreen"
             h="56px"
+            loading={isPending}
             fontSize="16px"
           >
             NEXT
