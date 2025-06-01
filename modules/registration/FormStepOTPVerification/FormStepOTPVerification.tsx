@@ -1,5 +1,6 @@
 "use client";
 import FormGroupTitle from "@/components/Form/FormGroupTitle";
+import { useI18n } from "@/locales/client";
 import { Box } from "@chakra-ui/react";
 import { useState } from "react";
 import SendCode from "./SendCode";
@@ -18,6 +19,7 @@ const FormStepOTPVerification: React.FC<FormStepOTPVerificationProps> = ({
   onClickBack,
   onClickNext,
 }) => {
+  const t = useI18n();
   const [sendCode, setSendCode] = useState<SendCodeTypeValue>(
     SendCodeTypeValue.Email
   );
@@ -36,7 +38,7 @@ const FormStepOTPVerification: React.FC<FormStepOTPVerificationProps> = ({
 
   return (
     <Box>
-      <FormGroupTitle title="OTP Verification" />
+      <FormGroupTitle title={t("otpVerify.title")} />
       {currentStep === OTPStepsEnum.SendCode && (
         <SendCode onClickNext={onSendOTP} onClickBack={() => onClickBack()} />
       )}

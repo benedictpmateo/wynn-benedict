@@ -1,5 +1,6 @@
 "use client";
 import { FormFieldType } from "@/lib/configs/form-types";
+import { useI18n } from "@/locales/client";
 import { Input as ChakraInput } from "@chakra-ui/react";
 import {
   FieldValues,
@@ -14,6 +15,7 @@ type InputTextProps<T> = {
 };
 
 function InputText<T>({ field, form }: InputTextProps<T>) {
+  const t = useI18n();
   const {
     field: { ref, name, onChange, onBlur, value },
   } = useController({
@@ -28,7 +30,9 @@ function InputText<T>({ field, form }: InputTextProps<T>) {
       onChange={onChange}
       onBlur={onBlur}
       value={value}
-      placeholder={field?.placeholder}
+      placeholder={
+        field?.placeholder ? t(field?.placeholder as never) : undefined
+      }
       css={{
         "--chakra-border-color": "var(--color-border)",
         "--error-color": "var(--color-error)",

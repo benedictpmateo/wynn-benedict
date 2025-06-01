@@ -1,3 +1,4 @@
+import useDirection from "@/lib/hooks/useDirection";
 import { Checkbox as ChakraCheckbox, Field } from "@chakra-ui/react";
 import {
   FieldValues,
@@ -21,13 +22,20 @@ function InputCheckbox<T>({ name, form, children }: InputCheckboxProps<T>) {
     name: name as Path<T & FieldValues>,
     control: form.control,
   });
+  const dir = useDirection();
   return (
-    <Field.Root invalid={invalid} py="12px" pl="4px" pr="16px">
+    <Field.Root
+      invalid={invalid}
+      py="12px"
+      paddingStart="4px"
+      paddingEnd="16px"
+    >
       <ChakraCheckbox.Root
         colorPalette="brandGreen"
         name={name}
         onCheckedChange={(value) => onChange(value.checked)}
         checked={value}
+        dir={dir}
       >
         <ChakraCheckbox.HiddenInput ref={ref} />
         <ChakraCheckbox.Control className={classes["checkbox__control"]}>

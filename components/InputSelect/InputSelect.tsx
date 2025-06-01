@@ -1,6 +1,8 @@
 "use client";
 
 import { FormFieldType } from "@/lib/configs/form-types";
+import useDirection from "@/lib/hooks/useDirection";
+import { useI18n } from "@/locales/client";
 import {
   Select as ChakraSelect,
   Flex,
@@ -26,8 +28,10 @@ const InputSelectValue = ({ placeholder }: { placeholder?: string }) => {
   const select = useSelectContext();
   const items = select.selectedItems as Array<SelectItemType>;
   const selectedItem = items?.[0];
+  const dir = useDirection();
   return (
     <ChakraSelect.ValueText
+      dir={dir}
       placeholder={placeholder}
       color={!selectedItem ? "var(--color-placeholder)" : undefined}
     >
@@ -56,9 +60,12 @@ function InputSelect<T>({
     name: name as Path<T & FieldValues>,
     control: form.control,
   });
+  const t = useI18n();
+  const dir = useDirection();
 
   return (
     <ChakraSelect.Root
+      dir={dir}
       name={name}
       value={[field.value]}
       invalid={invalid}
@@ -67,11 +74,13 @@ function InputSelect<T>({
       collection={collection}
     >
       <ChakraSelect.HiddenSelect ref={field.ref} />
-      <ChakraSelect.Control>
-        <ChakraSelect.Trigger className={classes["select__trigger"]}>
-          <InputSelectValue placeholder={placeholder} />
+      <ChakraSelect.Control dir={dir}>
+        <ChakraSelect.Trigger className={classes["select__trigger"]} dir={dir}>
+          <InputSelectValue
+            placeholder={placeholder ? t(placeholder as never) : undefined}
+          />
         </ChakraSelect.Trigger>
-        <ChakraSelect.IndicatorGroup pr="20px">
+        <ChakraSelect.IndicatorGroup paddingEnd="20px">
           <ChakraSelect.Indicator />
         </ChakraSelect.IndicatorGroup>
       </ChakraSelect.Control>
@@ -80,15 +89,16 @@ function InputSelect<T>({
         <ChakraSelect.Content>
           {items.map((item) => (
             <ChakraSelect.Item
+              dir={dir}
               key={item.value}
               item={item.value}
               css={{
                 py: "12px",
                 cursor: "pointer",
-                justifyContent: "flex-start",
+                justifyContent: "start",
               }}
             >
-              {item?.icon} {item.label}
+              {item?.icon} {t(item.label as never)}
               <ChakraSelect.ItemIndicator />
             </ChakraSelect.Item>
           ))}

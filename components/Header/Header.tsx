@@ -2,6 +2,7 @@
 import { LANDING_PAGE_HEADER_ITEMS } from "@/lib/configs/landing-page";
 import { MAX_W_CONTAINER } from "@/lib/configs/layout";
 import useWindowSize from "@/lib/hooks/useWindowSize";
+import { useI18n } from "@/locales/client";
 import { Box, Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import clsx from "clsx";
@@ -13,6 +14,7 @@ import HeaderMenu from "./HeaderMenu";
 import classes from "./header.module.css";
 
 const Header = () => {
+  const t = useI18n();
   const { open, onToggle, onClose } = useDisclosure({
     onOpen: () => {
       window?.scrollTo({ top: 0, behavior: "smooth" });
@@ -79,7 +81,7 @@ const Header = () => {
               >
                 <Link href={headerItem.href}>
                   <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
-                    {headerItem.label}
+                    {t(headerItem.label as never)}
                   </Text>
                 </Link>
               </Button>

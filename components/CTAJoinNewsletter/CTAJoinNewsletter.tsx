@@ -1,10 +1,12 @@
 "use client";
 import { MAX_W_CONTAINER } from "@/lib/configs/layout";
+import { useI18n } from "@/locales/client";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import { useRef } from "react";
 import classes from "./cta-join-newsletter.module.css";
 
 const CTAJoinNewsletter = () => {
+  const t = useI18n();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -37,12 +39,11 @@ const CTAJoinNewsletter = () => {
               lineHeight="24px"
               color="var(--color-text-900)"
             >
-              Get News & Updates
+              {t("newsLetter.title")}
             </Text>
 
             <Text maxW="370px" color="var(--color-text-200)">
-              Get latest developments and exciting news on how we are shaping
-              the future!
+              {t("newsLetter.message")}
             </Text>
           </Flex>
 
@@ -55,7 +56,7 @@ const CTAJoinNewsletter = () => {
               <Input
                 ref={inputRef}
                 className={classes["cta__input"]}
-                placeholder="Your email address"
+                placeholder={t("newsLetter.email")}
                 variant="outline"
                 type="email"
               />
@@ -64,7 +65,7 @@ const CTAJoinNewsletter = () => {
                 variant="outline"
                 type="submit"
               >
-                JOIN THE NEWSLETTER
+                {t("newsLetter.actionBtn")}
               </Button>
             </Flex>
           </form>

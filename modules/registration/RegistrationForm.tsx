@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/locales/client";
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import FormStepFinish from "./FormStepFinish";
@@ -16,6 +17,8 @@ enum StepsEnum {
 }
 
 const RegistrationForm = () => {
+  const t = useI18n();
+
   const [currentStep, setCurrentStep] = useState<StepsEnum>(
     StepsEnum.PersonalInfo
   );
@@ -50,15 +53,18 @@ const RegistrationForm = () => {
             color="var(--color-text-900)"
           >
             <Text fontFamily="heading" fontSize="37px" lineHeight="42px">
-              Registration
+              {t("registration.title")}
             </Text>
             <Text fontFamily="heading" fontSize="24px" lineHeight="42px">
-              Step {currentStep} of {MAX_STEP}
+              {t("steps", {
+                currentStep,
+                totalSteps: MAX_STEP,
+              })}
             </Text>
           </Flex>
 
           <Text fontSize="16px" color="var(--color-black)">
-            Please enter below information to create your account.
+            {t("registration.subtitle")}
           </Text>
         </Box>
 

@@ -1,11 +1,13 @@
+import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 import IconArrowDown from "@/public/assets/icons/arrow-down.svg";
 import { Box, Button, Menu, Portal, Text } from "@chakra-ui/react";
-import { useState } from "react";
 
 const HeaderLanguage = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const locale = useCurrentLocale();
+  const changeLocale = useChangeLocale();
+
   return (
-    <Menu.Root onSelect={(e) => setSelectedLanguage(e.value)}>
+    <Menu.Root onSelect={(e) => changeLocale(e.value as typeof locale)}>
       <Menu.Trigger asChild>
         <Button
           variant="plain"
@@ -15,7 +17,7 @@ const HeaderLanguage = () => {
           alignItems="center"
         >
           <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
-            {selectedLanguage.toUpperCase()}
+            {locale.toUpperCase()}
           </Text>
           <Box pt="6px">
             <IconArrowDown />

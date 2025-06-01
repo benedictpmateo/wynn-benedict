@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import { toaster } from "@/components/Toaster";
 import usePostUserRegistration from "@/lib/api/usePostUserRegistration";
+import { useI18n } from "@/locales/client";
 import { Box, Flex, RadioCard, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useController, useForm } from "react-hook-form";
@@ -19,6 +20,7 @@ type SendCodeProps = {
 };
 
 const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
+  const t = useI18n();
   const { currentForm } = useRegistrationForm();
   const { mutate: submitUser, isPending } = usePostUserRegistration();
 
@@ -71,14 +73,14 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
               lineHeight="28px"
               mb="16px"
             >
-              Send Code
+              {t("otpVerify.sendCode.title")}
             </Text>
             <Text
               fontSize="16px"
               lineHeight="20px"
               color="var(--color-text-100)"
             >
-              How would you like to receive the code?
+              {t("otpVerify.sendCode.message")}
             </Text>
           </Box>
           <Flex>
@@ -114,7 +116,7 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
                         lineHeight="20px"
                         letterSpacing="0.5px"
                       >
-                        {label}
+                        {t(label as never)}
                       </RadioCard.ItemText>
                     </RadioCard.ItemControl>
                   </RadioCard.Item>
@@ -126,10 +128,10 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
 
         <Flex gap={{ base: "12px", md: "40px" }}>
           <Button type="button" onClick={onClickBack} variant="outline">
-            BACK
+            {t("buttons.back")}
           </Button>
           <Button type="submit" loading={isPending}>
-            NEXT
+            {t("buttons.next")}
           </Button>
         </Flex>
       </Box>

@@ -1,8 +1,10 @@
 "use client";
+import Button from "@/components/Button";
 import InputOTP from "@/components/InputOTP";
 import { toaster } from "@/components/Toaster";
 import usePostUserVerifyOTPCode from "@/lib/api/usePostUserVerifyOTPCode";
-import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
+import { useI18n } from "@/locales/client";
+import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRegistrationForm } from "../RegistrationFormContext";
@@ -23,6 +25,7 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   onClickBack,
   onClickNext,
 }) => {
+  const t = useI18n();
   const { currentForm } = useRegistrationForm();
   const { mutate: submitVerifyOTP, isPending } = usePostUserVerifyOTPCode();
   const form = useForm({
@@ -65,80 +68,51 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
               lineHeight="28px"
               mb="16px"
             >
-              Please check your {sendCodeTo}.
+              {t("otpVerify.verifyCode.title", {
+                type:
+                  sendCodeTo === "phone"
+                    ? t("otpVerify.type.phone")
+                    : t("otpVerify.type.email"),
+              })}
             </Text>
             <Text
               fontSize="16px"
               lineHeight="20px"
               color="var(--color-text-100)"
             >
-              We&apos;ve sent a code to{" "}
-              {sendCodeTo === SendCodeTypeValue.Email
-                ? currentForm.email
-                : currentForm.phone}
+              {t("otpVerify.verifyCode.message", {
+                value:
+                  sendCodeTo === SendCodeTypeValue.Email
+                    ? currentForm.email
+                    : currentForm.phone,
+              })}
             </Text>
           </Box>
           <Flex justify="center" w="full" mb="18px">
             <InputOTP name="otpCode" form={form} />
           </Flex>
           <Text textAlign="center" color="var(--color-text-100)">
-            Didn’t get a code?{" "}
-            <Link
-              as="span"
-              textDecor="underline"
-              color="var(--color-text-100)"
-              onClick={() => onClickResend()}
-            >
-              Click to resend.
-            </Link>
+            {t("otpVerify.verifyCode.resend", {
+              resendLink: (
+                <Link
+                  as="span"
+                  textDecor="underline"
+                  color="var(--color-text-100)"
+                  onClick={() => onClickResend()}
+                >
+                  {t("otpVerify.verifyCode.resendLink")}
+                </Link>
+              ),
+            })}
           </Text>
         </Box>
 
         <Flex gap={{ base: "12px", md: "40px" }}>
-          <Button
-            flex={1}
-            type="button"
-            onClick={onClickBack}
-            variant="outline"
-            colorPalette="brandGreen"
-            h="56px"
-            fontSize="16px"
-            _active={{
-              background:
-                "color-mix(in srgb, var(--color-green) 60%, transparent) !important",
-              borderWidth: "1.5px",
-              borderColor: "var(--color-green)",
-              color: "var(--color-white)",
-            }}
-            _hover={{
-              background:
-                "color-mix(in srgb, var(--color-green) 90%, transparent)",
-              color: "var(--color-white)",
-            }}
-          >
-            BACK
+          <Button type="button" onClick={onClickBack} variant="outline">
+            {t("buttons.back")}
           </Button>
-          <Button
-            flex={1}
-            type="submit"
-            colorPalette="brandGreen"
-            h="56px"
-            fontSize="16px"
-            loading={isPending}
-            _active={{
-              background:
-                "color-mix(in srgb, var(--color-green) 60%, transparent) !important",
-              borderWidth: "1.5px",
-              borderColor: "var(--color-green)",
-              color: "var(--color-white)",
-            }}
-            _hover={{
-              background:
-                "color-mix(in srgb, var(--color-green) 90%, transparent)",
-              color: "var(--color-white)",
-            }}
-          >
-            NEXT
+          <Button type="submit" loading={isPending}>
+            {t("buttons.next")}
           </Button>
         </Flex>
       </Box>

@@ -50,17 +50,66 @@ export default {
     termsAndCondition: {
       label: "أوافق على {termsAndCondition} و {privacyPolicy}",
     },
+    sendToPhone: "إرسال إلى الهاتف",
+    sendToEmail: "إرسال إلى البريد الإلكتروني",
   },
-  hello: "Bonjour",
-  welcome: "Bonjour {name}!",
-  "about.you": "Bonjour {name}! Vous avez {age} ans",
-  "scope.test": "Un scope",
-  "scope.more.test": "Un scope",
-  "scope.more.param": "Un scope avec un {param}",
-  "scope.more.and.more.test": "Un scope",
-  "scope.more.stars#one": "1 étoile sur GitHub",
-  "scope.more.stars#other": "{count} étoiles sur GitHub",
-  // 'missing.translation.in.fr': '',
-  "cows#one": "Une vache",
-  "cows#other": "{count} vaches",
+  otpVerify: {
+    title: "التحقق بواسطة رمز OTP",
+    sendCode: {
+      title: "إرسال الرمز",
+      message: "كيف تريد استلام الرمز؟",
+    },
+    verifyCode: {
+      title: "الرجاء فحص {type} الخاص بك",
+      message: "لقد أرسلنا رمز التحقق إلى {value}",
+      resend: "لم تستلم الرمز؟ {resendLink}",
+      resendLink: "انقر لإعادة الإرسال",
+    },
+    type: {
+      phone: "الهاتف",
+      email: "البريد الإلكتروني",
+    },
+  },
+  successRegistration: {
+    finished: "تم التسجيل بنجاح",
+    title: "التسجيل ناجح.",
+    message: "شكراً لتسجيلك في منصتنا.",
+    actionBtn: "ابدأ من جديد.",
+  },
+  footer: {
+    connectWithUs: "تواصل معنا",
+    collections: {
+      shopHome: "مجموعة المتجر المنزلي",
+      giftCards: "بطاقات الهدايا",
+      wynnStories: "قصص وين",
+      wynnSlotsApp: "تطبيق وين للسلوتس",
+      mobileApp: "التطبيق الجوال",
+      responsibleGaming: "المقامرة المسؤولة",
+    },
+    legals: {
+      aboutUs: "معلومات عنا",
+      careers: "الوظائف",
+      investorRelations: "علاقات المستثمرين",
+      privacyNotice: "إشعار الخصوصية",
+      cookieNotice: "إشعار الكوكيز",
+      termsOfUse: "شروط الاستخدام",
+      hotelInfo: "معلومات الفندق والدليل",
+    },
+    locations: {
+      wynnPalace: "قصر وين كوتاي",
+      encoreBoston: "إنكور بوسطن هاربور",
+      wynnMacau: "وين ماكاو",
+    },
+  },
+  buttons: {
+    next: "التالي",
+    back: "رجوع",
+  },
+  newsLetter: {
+    title: "احصل على الأخبار والتحديثات",
+    message:
+      "احصل على آخر التطورات والأخبار المثيرة حول كيفية تشكيلنا للمستقبل!",
+    email: "عنوان بريدك الإلكتروني",
+    actionBtn: "انضم إلى النشرة البريدية",
+  },
 } as const;

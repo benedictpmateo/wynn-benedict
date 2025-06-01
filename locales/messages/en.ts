@@ -50,16 +50,66 @@ export default {
     termsAndCondition: {
       label: "I agree to the {termsAndCondition} and {privacyPolicy}",
     },
+    sendToPhone: "Send to Phone",
+    sendToEmail: "Send to Email",
   },
-  welcome: "Hello {name}!",
-  "about.you": "Hello {name}! You have {age} yo",
-  "scope.test": "A scope",
-  "scope.more.test": "A scope",
-  "scope.more.param": "A scope with {param}",
-  "scope.more.and.more.test": "A scope",
-  "scope.more.stars#one": "1 star on GitHub",
-  "scope.more.stars#other": "{count} stars on GitHub",
-  "missing.translation.in.fr": "This should work",
-  "cows#one": "A cow",
-  "cows#other": "{count} cows",
+  otpVerify: {
+    title: "OTP Verification",
+    sendCode: {
+      title: "Send Code",
+      message: "How would you like to receive the code?",
+    },
+    verifyCode: {
+      title: "Please check your {type}.",
+      message: "We've sent a code to {value}",
+      resend: "Didn’t get a code? {resendLink}",
+      resendLink: "Click to resend.",
+    },
+    type: {
+      phone: "phone",
+      email: "email",
+    },
+  },
+  successRegistration: {
+    finished: "Finished registration",
+    title: "Successful registration.",
+    message: "Thank you for registering in our platform.",
+    actionBtn: "Start again.",
+  },
+  footer: {
+    connectWithUs: "Connect with us.",
+    collections: {
+      shopHome: "Shop Home Collection",
+      giftCards: "Gift Cards",
+      wynnStories: "Wynn Stories",
+      wynnSlotsApp: "Wynn Slots App",
+      mobileApp: "Mobile App",
+      responsibleGaming: "Responsible Gaming",
+    },
+    legals: {
+      aboutUs: "About Us",
+      careers: "Careers",
+      investorRelations: "Investor Relations",
+      privacyNotice: "Privacy Notice",
+      cookieNotice: "Cookie Notice",
+      termsOfUse: "Terms of Use",
+      hotelInfo: "Hotel Information & Directory",
+    },
+    locations: {
+      wynnPalace: "Wynn Palace Cotai",
+      encoreBoston: "Encore Boston Harbor",
+      wynnMacau: "Wynn Macau",
+    },
+  },
+  buttons: {
+    next: "NEXT",
+    back: "BACK",
+  },
+  newsLetter: {
+    title: "Get News & Updates",
+    message:
+      "Get latest developments and exciting news on how we are shaping the future!",
+    email: "Your email address",
+    actionBtn: "JOIN THE NEWSLETTER",
+  },
 } as const;

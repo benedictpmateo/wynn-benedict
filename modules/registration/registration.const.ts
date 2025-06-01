@@ -9,30 +9,30 @@ import {
 const personalInfoFields: FormFieldType[] = [
   {
     name: "firstName",
-    label: "First Name",
+    label: "registrationFields.firstName.label",
     mandatory: true,
-    tooltip: "Input your first name",
-    placeholder: "Input your first name",
+    tooltip: "registrationFields.firstName.tooltip",
+    placeholder: "registrationFields.firstName.placeholder",
     componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Default,
     columnSpan: 1,
   },
   {
     name: "lastName",
-    label: "Last Name",
+    label: "registrationFields.lastName.label",
     mandatory: true,
-    tooltip: "Input your last name",
-    placeholder: "Input your last name",
+    tooltip: "registrationFields.lastName.tooltip",
+    placeholder: "registrationFields.lastName.placeholder",
     componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Default,
     columnSpan: 1,
   },
   {
     name: "gender",
-    label: "Gender",
+    label: "registrationFields.gender.label",
     mandatory: true,
-    tooltip: "Select your gender",
-    placeholder: "Select your gender",
+    tooltip: "registrationFields.gender.tooltip",
+    placeholder: "registrationFields.gender.placeholder",
     componentType: FieldComponentTypeEnum.InputSelect,
     validationPattern: FieldValidationPatternEnum.Default,
     options: [
@@ -42,10 +42,10 @@ const personalInfoFields: FormFieldType[] = [
   },
   {
     name: "residenceCountry",
-    label: "Your residence country",
+    label: "registrationFields.residenceCountry.label",
     mandatory: true,
-    tooltip: "Select your residence country",
-    placeholder: "Select your residence country",
+    tooltip: "registrationFields.residenceCountry.tooltip",
+    placeholder: "registrationFields.residenceCountry.placeholder",
     componentType: FieldComponentTypeEnum.InputSelect,
     validationPattern: FieldValidationPatternEnum.Default,
     optionsDictionary: FieldOptionDictionaryEnum.CountryList,
@@ -55,19 +55,19 @@ const personalInfoFields: FormFieldType[] = [
 const contactDetailsFields: FormFieldType[] = [
   {
     name: "email",
-    label: "Email",
+    label: "registrationFields.email.label",
     mandatory: true,
-    tooltip: "Please input your valid email address",
-    placeholder: "Input your email address",
+    tooltip: "registrationFields.email.tooltip",
+    placeholder: "registrationFields.email.placeholder",
     componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Email,
   },
   {
     name: "phone",
-    label: "Phone Number",
+    label: "registrationFields.phone.label",
     mandatory: true,
-    tooltip: "Please input your valid phone number",
-    placeholder: "Input your phone number",
+    tooltip: "registrationFields.phone.tooltip",
+    placeholder: "registrationFields.phone.placeholder",
     componentType: FieldComponentTypeEnum.InputPhone,
     validationPattern: FieldValidationPatternEnum.Phone,
   },
@@ -78,11 +78,11 @@ const contactDetailsFields: FormFieldType[] = [
  */
 export const registrationFormBlocks: FormBlockType[] = [
   {
-    label: "Personal Info",
+    label: "registration.personalInfo",
     fields: personalInfoFields,
   },
   {
-    label: "Contact Details",
+    label: "registration.contactDetails",
     fields: contactDetailsFields,
   },
 ];
@@ -90,10 +90,10 @@ export const registrationFormBlocks: FormBlockType[] = [
 export const sendCodeOptions = [
   {
     value: "phone",
-    label: "Send to Phone",
+    label: "registrationFields.sendToPhone",
   },
   {
     value: "email",
-    label: "Send to Email",
+    label: "registrationFields.sendToEmail",
   },
 ];

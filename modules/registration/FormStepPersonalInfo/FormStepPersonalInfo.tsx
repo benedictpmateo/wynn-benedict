@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import Form from "@/components/Form";
 import InputCheckbox from "@/components/InputCheckbox";
 import { PAGE_ROUTES } from "@/lib/configs/routes";
+import { useI18n } from "@/locales/client";
 import { Box, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -21,6 +22,7 @@ type FormStepPersonalInfoProps = {
 const FormStepPersonalInfo: React.FC<FormStepPersonalInfoProps> = ({
   onClickNext,
 }) => {
+  const t = useI18n();
   const { currentForm, setCurrentForm } = useRegistrationForm();
   const form = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),
@@ -42,25 +44,36 @@ const FormStepPersonalInfo: React.FC<FormStepPersonalInfoProps> = ({
 
       <Box mt="32px">
         <InputCheckbox name="termsAndCondition" form={form}>
-          I agree to the{" "}
-          <Link href={PAGE_ROUTES.TermsAndConditions} target="_blank">
-            <Text as="span" color="var(--color-brown)" textDecor="underline">
-              terms and conditions
-            </Text>
-          </Link>{" "}
-          and{" "}
-          <Link href={PAGE_ROUTES.PrivacyPolicy} target="_blank">
-            <Text as="span" color="var(--color-brown)" textDecor="underline">
-              privacy policy
-            </Text>
-          </Link>
-          .
+          {t("registrationFields.termsAndCondition.label", {
+            termsAndCondition: (
+              <Link href={PAGE_ROUTES.TermsAndConditions} target="_blank">
+                <Text
+                  as="span"
+                  color="var(--color-brown)"
+                  textDecor="underline"
+                >
+                  {t("termsAndCondition")}
+                </Text>
+              </Link>
+            ),
+            privacyPolicy: (
+              <Link href={PAGE_ROUTES.PrivacyPolicy} target="_blank">
+                <Text
+                  as="span"
+                  color="var(--color-brown)"
+                  textDecor="underline"
+                >
+                  {t("privacyPolicy")}
+                </Text>
+              </Link>
+            ),
+          })}
         </InputCheckbox>
       </Box>
 
       <Box mt="44px">
         <Button minW="217px" type="submit">
-          NEXT
+          {t("buttons.next")}
         </Button>
       </Box>
     </form>

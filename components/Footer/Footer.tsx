@@ -77,7 +77,7 @@ const Footer = () => {
           </Box>
         </Flex>
 
-        <Box textAlign="center">
+        <Box textAlign="center" dir="ltr">
           <Text
             fontSize="11px"
             lineHeight="17px"

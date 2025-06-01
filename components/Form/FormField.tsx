@@ -3,6 +3,7 @@ import {
   FieldComponentTypeEnum,
   FormFieldType,
 } from "@/lib/configs/form-types";
+import { useI18n } from "@/locales/client";
 import IconInfo from "@/public/assets/icons/info.svg";
 import { Field, Flex } from "@chakra-ui/react";
 import {
@@ -29,6 +30,7 @@ function FormField<T>({ field, form }: FormFieldProps<T>) {
     name: field.name as Path<T & FieldValues>,
     control: form.control,
   });
+  const t = useI18n();
 
   return (
     <Field.Root invalid={invalid}>
@@ -40,10 +42,10 @@ function FormField<T>({ field, form }: FormFieldProps<T>) {
           lineHeight="18px"
           color="var(--color-black)"
         >
-          {label} {mandatory ? "*" : ""}
+          {t(label as never)} {mandatory ? "*" : ""}
         </Field.Label>
         {!!tooltip && (
-          <Tooltip content={tooltip}>
+          <Tooltip content={t(tooltip as never)}>
             <IconInfo />
           </Tooltip>
         )}

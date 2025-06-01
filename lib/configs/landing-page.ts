@@ -7,100 +7,100 @@ import { PAGE_ROUTES } from "./routes";
 
 export const LANDING_PAGE_HEADER_ITEMS = [
   {
-    label: "ROOM & SUITES",
+    label: "header.roomAndSuites",
     href: PAGE_ROUTES.RoomAndSuites,
   },
   {
-    label: "WYNN REWARDS",
+    label: "header.wynnRewards",
     href: PAGE_ROUTES.WynnRewards,
   },
   {
-    label: "OFFERS",
+    label: "header.offers",
     href: PAGE_ROUTES.Offers,
   },
   {
-    label: "DINING",
+    label: "header.dining",
     href: PAGE_ROUTES.Dining,
   },
   {
-    label: "ENTERTAINMENT",
+    label: "header.entertainment",
     href: PAGE_ROUTES.Entertainment,
   },
   {
-    label: "MEETING & EVENTS",
+    label: "header.meetingAndEvents",
     href: PAGE_ROUTES.MeetingAndEvents,
   },
 ];
 
 export const FOOTER_LINKS_COLLECTIONS = [
   {
-    label: "Shop Home Collection",
+    label: "footer.collections.shopHome",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Gift Cards",
+    label: "footer.collections.giftCards",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Wynn Stories",
+    label: "footer.collections.wynnStories",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Wynn Slots App",
+    label: "footer.collections.wynnSlotsApp",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Mobile App",
+    label: "footer.collections.mobileApp",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Responsible Gaming",
+    label: "footer.collections.responsibleGaming",
     href: PAGE_ROUTES.NotFound,
   },
 ];
 
 export const FOOTER_LINKS_LEGALS_INFORMATIONS = [
   {
-    label: "About Us",
+    label: "footer.legals.aboutUs",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Careers",
+    label: "footer.legals.careers",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Investor Relations",
+    label: "footer.legals.investorRelations",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Privacy Notice",
+    label: "footer.legals.privacyNotice",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Cookie Notice",
+    label: "footer.legals.cookieNotice",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Terms of Use",
+    label: "footer.legals.termsOfUse",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Hotel Information & Directory",
+    label: "footer.legals.hotelInfo",
     href: PAGE_ROUTES.NotFound,
   },
 ];
 
 export const FOOTER_LINKS_LOCATIONS = [
   {
-    label: "Wynn Palace Cotai",
+    label: "footer.locations.wynnPalace",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Encore Boston Harbor",
+    label: "footer.locations.encoreBoston",
     href: PAGE_ROUTES.NotFound,
   },
   {
-    label: "Wynn Macau",
+    label: "footer.locations.wynnMacau",
     href: PAGE_ROUTES.NotFound,
   },
 ];

@@ -1,3 +1,4 @@
+import { useI18n } from "@/locales/client";
 import { Box, Flex, Text } from "@chakra-ui/react";
 
 type FormGroupTitleProps = {
@@ -5,6 +6,7 @@ type FormGroupTitleProps = {
 };
 
 const FormGroupTitle: React.FC<FormGroupTitleProps> = ({ title }) => {
+  const t = useI18n();
   return (
     <Flex w="full">
       <Box
@@ -15,10 +17,10 @@ const FormGroupTitle: React.FC<FormGroupTitleProps> = ({ title }) => {
           fontSize: "22px",
           lineHeight: "30px",
           pb: "8px",
-          pr: "24px",
+          paddingEnd: "24px",
         }}
       >
-        <Text>{title}</Text>
+        <Text>{t(title as never)}</Text>
       </Box>
     </Flex>
   );

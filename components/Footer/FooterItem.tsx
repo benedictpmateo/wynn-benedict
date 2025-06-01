@@ -1,3 +1,5 @@
+"use client";
+import { useI18n } from "@/locales/client";
 import { Text } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -10,6 +12,8 @@ type FooterItemProps = {
 };
 
 const FooterItem: React.FC<FooterItemProps> = ({ label, href }) => {
+  const t = useI18n();
+
   if (href) {
     return (
       <Link href={href} className="animate-link-underline">
@@ -20,7 +24,7 @@ const FooterItem: React.FC<FooterItemProps> = ({ label, href }) => {
 
   return (
     <Text fontSize="11px" lineHeight="24px" letterSpacing="0.5px">
-      {label}
+      {t(label as never)}
     </Text>
   );
 };
