@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 type RuleInferType = { test: { test: (arg0: string) => unknown } };
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["next-international", "international-types"],
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule: RuleInferType) =>
       rule.test?.test?.(".svg")

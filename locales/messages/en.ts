@@ -1,0 +1,65 @@
+export default {
+  steps: "Step {currentStep} of {totalSteps}",
+  termsAndCondition: "terms and condition",
+  privacyPolicy: "privacy policy",
+  header: {
+    roomAndSuites: "ROOM & SUITES",
+    wynnRewards: "WYNN REWARDS",
+    offers: "OFFERS",
+    dining: "DINING",
+    entertainment: "ENTERTAINMENT",
+    meetingAndEvents: "MEETING & EVENTS",
+  },
+  registration: {
+    title: "Registration",
+    subtitle: "Please enter below information to create your account.",
+    personalInfo: "Personal Info",
+    contactDetails: "Contact Details",
+  },
+  registrationFields: {
+    firstName: {
+      label: "First Name",
+      tooltip: "Input your first name",
+      placeholder: "Input your first name",
+    },
+    lastName: {
+      label: "Last Name",
+      tooltip: "Input your last name",
+      placeholder: "Input your last name",
+    },
+    gender: {
+      label: "Gender",
+      tooltip: "Select your gender",
+      placeholder: "Select your gender",
+    },
+    residenceCountry: {
+      label: "Your residence country",
+      tooltip: "Select your residence country",
+      placeholder: "Select your residence country",
+    },
+    email: {
+      label: "Email",
+      tooltip: "Input your email address",
+      placeholder: "Input your email address",
+    },
+    phone: {
+      label: "Phone Number",
+      tooltip: "Input your phone number",
+      placeholder: "Input your phone number",
+    },
+    termsAndCondition: {
+      label: "I agree to the {termsAndCondition} and {privacyPolicy}",
+    },
+  },
+  welcome: "Hello {name}!",
+  "about.you": "Hello {name}! You have {age} yo",
+  "scope.test": "A scope",
+  "scope.more.test": "A scope",
+  "scope.more.param": "A scope with {param}",
+  "scope.more.and.more.test": "A scope",
+  "scope.more.stars#one": "1 star on GitHub",
+  "scope.more.stars#other": "{count} stars on GitHub",
+  "missing.translation.in.fr": "This should work",
+  "cows#one": "A cow",
+  "cows#other": "{count} cows",
+} as const;

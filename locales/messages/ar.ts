@@ -1,0 +1,66 @@
+export default {
+  steps: "الخطوة {currentStep} من {totalSteps}",
+  termsAndCondition: "الشروط والأحكام",
+  privacyPolicy: "سياسة الخصوصية",
+  header: {
+    roomAndSuites: "الغرف والأجنحة",
+    wynnRewards: "مكافآت وين",
+    offers: "العروض",
+    dining: "المطاعم",
+    entertainment: "الترفيه",
+    meetingAndEvents: "الاجتماعات والفعاليات",
+  },
+  registration: {
+    title: "التسجيل",
+    subtitle: "الرجاء إدخال المعلومات أدناه لإنشاء حسابك.",
+    personalInfo: "المعلومات الشخصية",
+    contactDetails: "تفاصيل الاتصال",
+  },
+  registrationFields: {
+    firstName: {
+      label: "الاسم الأول",
+      tooltip: "أدخل اسمك الأول",
+      placeholder: "أدخل اسمك الأول",
+    },
+    lastName: {
+      label: "الاسم الأخير",
+      tooltip: "أدخل اسمك الأخير",
+      placeholder: "أدخل اسمك الأخير",
+    },
+    gender: {
+      label: "الجنس",
+      tooltip: "اختر جنسك",
+      placeholder: "اختر جنسك",
+    },
+    residenceCountry: {
+      label: "بلد الإقامة",
+      tooltip: "اختر بلد إقامتك",
+      placeholder: "اختر بلد إقامتك",
+    },
+    email: {
+      label: "البريد الإلكتروني",
+      tooltip: "أدخل عنوان بريدك الإلكتروني",
+      placeholder: "أدخل عنوان بريدك الإلكتروني",
+    },
+    phone: {
+      label: "رقم الهاتف",
+      tooltip: "أدخل رقم هاتفك",
+      placeholder: "أدخل رقم هاتفك",
+    },
+    termsAndCondition: {
+      label: "أوافق على {termsAndCondition} و {privacyPolicy}",
+    },
+  },
+  hello: "Bonjour",
+  welcome: "Bonjour {name}!",
+  "about.you": "Bonjour {name}! Vous avez {age} ans",
+  "scope.test": "Un scope",
+  "scope.more.test": "Un scope",
+  "scope.more.param": "Un scope avec un {param}",
+  "scope.more.and.more.test": "Un scope",
+  "scope.more.stars#one": "1 étoile sur GitHub",
+  "scope.more.stars#other": "{count} étoiles sur GitHub",
+  // 'missing.translation.in.fr': '',
+  "cows#one": "Une vache",
+  "cows#other": "{count} vaches",
+} as const;
