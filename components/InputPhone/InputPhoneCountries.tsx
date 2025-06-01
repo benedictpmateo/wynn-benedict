@@ -1,5 +1,6 @@
 import { CountryType } from "@/lib/configs/countries";
-import { Box, Flex, Input, Text } from "@chakra-ui/react";
+import IconSearch from "@/public/assets/icons/search.svg";
+import { Box, Flex, Input, InputGroup, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
 import classes from "./phone.module.css";
@@ -28,13 +29,15 @@ const InputPhoneCountries = ({
   return (
     <Box className={classes["phone-countries__root"]}>
       <Box position="sticky" top="0" bg="white">
-        <Input
-          type="search"
-          className={classes["phone-countries__input"]}
-          autoComplete="off"
-          placeholder="Search"
-          onChange={(event) => handleSearch(event.target.value)}
-        />
+        <InputGroup startElement={<IconSearch />}>
+          <Input
+            type="search"
+            className={classes["phone-countries__input"]}
+            autoComplete="off"
+            placeholder="Search"
+            onChange={(event) => handleSearch(event.target.value)}
+          />
+        </InputGroup>
       </Box>
 
       <Box>
