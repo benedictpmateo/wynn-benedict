@@ -3,6 +3,7 @@ import { MAX_W_CONTAINER } from "@/lib/configs/layout";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import HeaderLanguage from "./HeaderLanguage";
 
 const Header = () => {
   return (
@@ -52,9 +53,7 @@ const Header = () => {
           </Flex>
         </Box>
         <Box>
-          <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
-            EN
-          </Text>
+          <HeaderLanguage />
         </Box>
       </Flex>
     </Box>
