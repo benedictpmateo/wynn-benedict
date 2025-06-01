@@ -1,8 +1,9 @@
 "use client";
+import Button from "@/components/Button";
 import Form from "@/components/Form";
 import InputCheckbox from "@/components/InputCheckbox";
 import { PAGE_ROUTES } from "@/lib/configs/routes";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -58,14 +59,7 @@ const FormStepPersonalInfo: React.FC<FormStepPersonalInfoProps> = ({
       </Box>
 
       <Box mt="44px">
-        <Button
-          flex={1}
-          type="submit"
-          minW="217px"
-          h="56px"
-          fontSize="16px"
-          colorPalette="brandGreen"
-        >
+        <Button minW="217px" type="submit">
           NEXT
         </Button>
       </Box>

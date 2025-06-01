@@ -1,7 +1,8 @@
 "use client";
+import Button from "@/components/Button";
 import { toaster } from "@/components/Toaster";
 import usePostUserRegistration from "@/lib/api/usePostUserRegistration";
-import { Box, Button, Flex, RadioCard, Text } from "@chakra-ui/react";
+import { Box, Flex, RadioCard, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useController, useForm } from "react-hook-form";
 import { sendCodeOptions } from "../registration.const";
@@ -124,25 +125,10 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
         </Box>
 
         <Flex gap={{ base: "12px", md: "40px" }}>
-          <Button
-            flex={1}
-            type="button"
-            onClick={onClickBack}
-            variant="outline"
-            colorPalette="brandGreen"
-            h="56px"
-            fontSize="16px"
-          >
+          <Button type="button" onClick={onClickBack} variant="outline">
             BACK
           </Button>
-          <Button
-            flex={1}
-            type="submit"
-            colorPalette="brandGreen"
-            h="56px"
-            loading={isPending}
-            fontSize="16px"
-          >
+          <Button type="submit" loading={isPending}>
             NEXT
           </Button>
         </Flex>

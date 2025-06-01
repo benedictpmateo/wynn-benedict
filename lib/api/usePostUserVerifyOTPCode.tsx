@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
-const usePostUserOTP = () => {
+const usePostUserVerifyOTPCode = () => {
   const mutation = useMutation({
     mutationFn: async (body: { email: string; otpCode: string }) => {
       const response = await axios.post(
@@ -15,4 +15,4 @@ const usePostUserOTP = () => {
   return mutation;
 };
 
-export default usePostUserOTP;
+export default usePostUserVerifyOTPCode;

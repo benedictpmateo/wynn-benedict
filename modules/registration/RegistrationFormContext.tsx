@@ -4,6 +4,16 @@ import { registrationSchema } from "./registration.schema";
 
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
 
+export const initialValues = {
+  email: "",
+  firstName: "",
+  lastName: "",
+  gender: "",
+  phone: "",
+  residenceCountry: "",
+  termsAndCondition: false,
+};
+
 type RegistrationFormContextType = {
   currentForm: RegistrationFormData;
   setCurrentForm: React.Dispatch<React.SetStateAction<RegistrationFormData>>;
@@ -16,15 +26,8 @@ const RegistrationFormContext = createContext<
 export const RegistrationFormProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [currentForm, setCurrentForm] = useState<RegistrationFormData>({
-    email: "",
-    firstName: "",
-    lastName: "",
-    gender: "",
-    phone: "",
-    residenceCountry: "",
-    termsAndCondition: false,
-  });
+  const [currentForm, setCurrentForm] =
+    useState<RegistrationFormData>(initialValues);
 
   return (
     <RegistrationFormContext.Provider value={{ currentForm, setCurrentForm }}>

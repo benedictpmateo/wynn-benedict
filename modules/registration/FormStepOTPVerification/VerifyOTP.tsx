@@ -1,7 +1,7 @@
 "use client";
 import InputOTP from "@/components/InputOTP";
 import { toaster } from "@/components/Toaster";
-import usePostUserOTP from "@/lib/api/usePostUserOTP";
+import usePostUserVerifyOTPCode from "@/lib/api/usePostUserVerifyOTPCode";
 import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -24,7 +24,7 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   onClickNext,
 }) => {
   const { currentForm } = useRegistrationForm();
-  const { mutate: submitVerifyOTP, isPending } = usePostUserOTP();
+  const { mutate: submitVerifyOTP, isPending } = usePostUserVerifyOTPCode();
   const form = useForm({
     defaultValues: {
       otpCode: [],
@@ -103,6 +103,18 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
             colorPalette="brandGreen"
             h="56px"
             fontSize="16px"
+            _active={{
+              background:
+                "color-mix(in srgb, var(--color-green) 60%, transparent) !important",
+              borderWidth: "1.5px",
+              borderColor: "var(--color-green)",
+              color: "var(--color-white)",
+            }}
+            _hover={{
+              background:
+                "color-mix(in srgb, var(--color-green) 90%, transparent)",
+              color: "var(--color-white)",
+            }}
           >
             BACK
           </Button>
@@ -113,6 +125,18 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
             h="56px"
             fontSize="16px"
             loading={isPending}
+            _active={{
+              background:
+                "color-mix(in srgb, var(--color-green) 60%, transparent) !important",
+              borderWidth: "1.5px",
+              borderColor: "var(--color-green)",
+              color: "var(--color-white)",
+            }}
+            _hover={{
+              background:
+                "color-mix(in srgb, var(--color-green) 90%, transparent)",
+              color: "var(--color-white)",
+            }}
           >
             NEXT
           </Button>

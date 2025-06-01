@@ -34,6 +34,11 @@ const RegistrationForm = () => {
     }
   };
 
+  const onStartRegister = () => {
+    setCurrentStep(StepsEnum.PersonalInfo);
+    window?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <RegistrationFormProvider>
       <VStack direction="column" gap="40px" px={{ base: "16px", xl: 0 }}>
@@ -67,7 +72,9 @@ const RegistrationForm = () => {
               onClickBack={onClickBack}
             />
           )}
-          {currentStep === StepsEnum.Done && <FormStepFinish />}
+          {currentStep === StepsEnum.Done && (
+            <FormStepFinish onStartRegister={onStartRegister} />
+          )}
         </Box>
       </VStack>
     </RegistrationFormProvider>
