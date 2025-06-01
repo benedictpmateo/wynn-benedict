@@ -1,11 +1,36 @@
+"use client";
 import { LANDING_PAGE_HEADER_ITEMS } from "@/lib/configs/landing-page";
 import { MAX_W_CONTAINER } from "@/lib/configs/layout";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import useWindowSize from "@/lib/hooks/useWindowSize";
+import { Box, Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import HeaderLanguage from "./HeaderLanguage";
+import HeaderMenu from "./HeaderMenu";
+import classes from "./header.module.css";
 
 const Header = () => {
+  const { open, onToggle, onClose } = useDisclosure({
+    onOpen: () => {
+      window?.scrollTo({ top: 0, behavior: "smooth" });
+      disableBodyScroll(document.body);
+    },
+    onClose: () => {
+      enableBodyScroll(document.body);
+    },
+  });
+
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    if (width && width >= 1280) {
+      onClose();
+    }
+  }, [onClose, width]);
+
   return (
     <Box bg="white">
       <Flex
@@ -17,6 +42,7 @@ const Header = () => {
         px={{ base: "24px", lg: "60px" }}
         py="24px"
         transition="all"
+        position="relative"
       >
         <Box cursor="pointer">
           <Link href="/">
@@ -30,8 +56,16 @@ const Header = () => {
           </Link>
         </Box>
 
-        <Box display={{ base: "none", xl: "block" }}>
-          <Flex gap="8px" align="center">
+        <Box
+          className={clsx(classes["header-items"], {
+            [classes["header-items--open"]]: open,
+          })}
+        >
+          <Flex
+            gap="8px"
+            align="center"
+            direction={{ base: "column", xl: "row" }}
+          >
             {LANDING_PAGE_HEADER_ITEMS.map((headerItem) => (
               <Button
                 variant="plain"
@@ -52,9 +86,10 @@ const Header = () => {
             ))}
           </Flex>
         </Box>
-        <Box>
+        <Flex align="center">
           <HeaderLanguage />
-        </Box>
+          <HeaderMenu open={open} onToggle={onToggle} />
+        </Flex>
       </Flex>
     </Box>
   );
