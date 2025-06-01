@@ -7,4 +7,6 @@ export enum PAGE_ROUTES {
   Dining = "/dining",
   Entertainment = "/entertainment",
   MeetingAndEvents = "/meeting-and-events",
+  TermsAndConditions = "/terms-and-conditions",
+  PrivacyPolicy = "/privacy-policy",
 }

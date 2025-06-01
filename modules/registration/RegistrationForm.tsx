@@ -1,8 +1,11 @@
 "use client";
+
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import RegistrationPersonalInfo from "./RegistrationPersonalInfo";
-import RegistrationSendAndVerifyOTP from "./RegistrationSendAndVerifyOTP";
+import FormStepFinish from "./FormStepFinish";
+import FormStepOTPVerification from "./FormStepOTPVerification";
+import FormStepPersonalInfo from "./FormStepPersonalInfo";
+import { RegistrationFormProvider } from "./RegistrationFormContext";
 
 const MAX_STEP = 3;
 
@@ -32,39 +35,42 @@ const RegistrationForm = () => {
   };
 
   return (
-    <VStack direction="column" gap="40px">
-      <Box w="full">
-        <Flex
-          align="start"
-          justify="space-between"
-          mb="24px"
-          color="var(--color-text-900)"
-        >
-          <Text fontFamily="heading" fontSize="37px" lineHeight="42px">
-            Registration
-          </Text>
-          <Text fontFamily="heading" fontSize="24px" lineHeight="42px">
-            Step {currentStep} of {MAX_STEP}
-          </Text>
-        </Flex>
+    <RegistrationFormProvider>
+      <VStack direction="column" gap="40px">
+        <Box w="full">
+          <Flex
+            align="start"
+            justify="space-between"
+            mb="24px"
+            color="var(--color-text-900)"
+          >
+            <Text fontFamily="heading" fontSize="37px" lineHeight="42px">
+              Registration
+            </Text>
+            <Text fontFamily="heading" fontSize="24px" lineHeight="42px">
+              Step {currentStep} of {MAX_STEP}
+            </Text>
+          </Flex>
 
-        <Text fontSize="16px" color="var(--color-black)">
-          Please enter below information to create your account.
-        </Text>
-      </Box>
+          <Text fontSize="16px" color="var(--color-black)">
+            Please enter below information to create your account.
+          </Text>
+        </Box>
 
-      <Box w="full">
-        {currentStep === StepsEnum.PersonalInfo && (
-          <RegistrationPersonalInfo onClickNext={onClickNext} />
-        )}
-        {currentStep === StepsEnum.SendAndVerifyOTP && (
-          <RegistrationSendAndVerifyOTP
-            onClickNext={onClickNext}
-            onClickBack={onClickBack}
-          />
-        )}
-      </Box>
-    </VStack>
+        <Box w="full">
+          {currentStep === StepsEnum.PersonalInfo && (
+            <FormStepPersonalInfo onClickNext={onClickNext} />
+          )}
+          {currentStep === StepsEnum.SendAndVerifyOTP && (
+            <FormStepOTPVerification
+              onClickNext={onClickNext}
+              onClickBack={onClickBack}
+            />
+          )}
+          {currentStep === StepsEnum.Done && <FormStepFinish />}
+        </Box>
+      </VStack>
+    </RegistrationFormProvider>
   );
 };
 

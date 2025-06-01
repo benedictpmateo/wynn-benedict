@@ -1,15 +1,15 @@
 import { FormBlockType } from "@/lib/configs/form-types";
 import { Grid, GridItem } from "@chakra-ui/react";
-import FormGroupTitle from "./FormGroupTitle";
+import { FieldValues, UseFormReturn } from "react-hook-form";
 import FormField from "./FormField";
-import { Control, FieldValues } from "react-hook-form";
+import FormGroupTitle from "./FormGroupTitle";
 
-type FormProps = {
+type FormProps<T> = {
   blocks: FormBlockType[];
-  control: Control<FieldValues>;
+  form: UseFormReturn<FieldValues & T>;
 };
 
-const Form: React.FC<FormProps> = ({ blocks, control }) => {
+function Form<T>({ blocks, form }: FormProps<T>) {
   return (
     <Grid gap="32px">
       {/* Render blocks */}
@@ -24,7 +24,7 @@ const Form: React.FC<FormProps> = ({ blocks, control }) => {
                 key={`block-${i}-field-${j}`}
                 colSpan={field?.columnSpan || 2}
               >
-                <FormField field={field} control={control} />
+                <FormField<T> field={field} form={form} />
               </GridItem>
             ))}
           </Grid>
@@ -32,6 +32,6 @@ const Form: React.FC<FormProps> = ({ blocks, control }) => {
       ))}
     </Grid>
   );
-};
+}
 
 export default Form;

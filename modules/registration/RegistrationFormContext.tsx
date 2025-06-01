@@ -1,0 +1,45 @@
+import React, { createContext, useContext, useState } from "react";
+import { z } from "zod";
+import { registrationSchema } from "./registration.schema";
+
+export type RegistrationFormData = z.infer<typeof registrationSchema>;
+
+type RegistrationFormContextType = {
+  currentForm: RegistrationFormData;
+  setCurrentForm: React.Dispatch<React.SetStateAction<RegistrationFormData>>;
+};
+
+const RegistrationFormContext = createContext<
+  RegistrationFormContextType | undefined
+>(undefined);
+
+export const RegistrationFormProvider: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  const [currentForm, setCurrentForm] = useState<RegistrationFormData>({
+    email: "test@test.com",
+    firstName: "Test",
+    lastName: "Test",
+    gender: "Male",
+    phone: "+971555316627",
+    residenceCountry: "AE",
+    termsAndCondition: false,
+  });
+
+  return (
+    <RegistrationFormContext.Provider value={{ currentForm, setCurrentForm }}>
+      {children}
+    </RegistrationFormContext.Provider>
+  );
+};
+
+// Custom hook for easy access
+export const useRegistrationForm = () => {
+  const context = useContext(RegistrationFormContext);
+  if (!context) {
+    throw new Error(
+      "useRegistrationForm must be used within a RegistrationFormProvider"
+    );
+  }
+  return context;
+};

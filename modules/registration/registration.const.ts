@@ -1,9 +1,9 @@
 import {
   FieldComponentTypeEnum,
   FieldOptionDictionaryEnum,
-  FormFieldType,
   FieldValidationPatternEnum,
   FormBlockType,
+  FormFieldType,
 } from "@/lib/configs/form-types";
 
 const personalInfoFields: FormFieldType[] = [
@@ -13,7 +13,7 @@ const personalInfoFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Input your first name",
     placeholder: "Input your first name",
-    componentType: FieldComponentTypeEnum.TextInput,
+    componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Default,
     columnSpan: 1,
   },
@@ -23,7 +23,7 @@ const personalInfoFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Input your last name",
     placeholder: "Input your last name",
-    componentType: FieldComponentTypeEnum.TextInput,
+    componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Default,
     columnSpan: 1,
   },
@@ -33,9 +33,12 @@ const personalInfoFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Select your gender",
     placeholder: "Select your gender",
-    componentType: FieldComponentTypeEnum.SelectInput,
+    componentType: FieldComponentTypeEnum.InputSelect,
     validationPattern: FieldValidationPatternEnum.Default,
-    options: ["Male", "Female"],
+    options: [
+      { label: "Male", value: "Male" },
+      { label: "Female", value: "Female" },
+    ],
   },
   {
     name: "residenceCountry",
@@ -43,9 +46,9 @@ const personalInfoFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Select your residence country",
     placeholder: "Select your residence country",
-    componentType: FieldComponentTypeEnum.SelectInput,
+    componentType: FieldComponentTypeEnum.InputSelect,
     validationPattern: FieldValidationPatternEnum.Default,
-    optionsDictioanry: FieldOptionDictionaryEnum.CountryList,
+    optionsDictionary: FieldOptionDictionaryEnum.CountryList,
   },
 ];
 
@@ -56,7 +59,7 @@ const contactDetailsFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Please input your valid email address",
     placeholder: "Input your email address",
-    componentType: FieldComponentTypeEnum.TextInput,
+    componentType: FieldComponentTypeEnum.InputText,
     validationPattern: FieldValidationPatternEnum.Email,
   },
   {
@@ -65,7 +68,7 @@ const contactDetailsFields: FormFieldType[] = [
     mandatory: true,
     tooltip: "Please input your valid phone number",
     placeholder: "Input your phone number",
-    componentType: FieldComponentTypeEnum.PhoneInput,
+    componentType: FieldComponentTypeEnum.InputPhone,
     validationPattern: FieldValidationPatternEnum.Phone,
   },
 ];

@@ -5,11 +5,11 @@ import {
   createSystem,
   defaultConfig,
 } from "@chakra-ui/react";
-import "./globals.css";
 import Header from "@/components/Header";
-import { MAX_W_CONTAINER } from "@/lib/configs/layout";
 import CTAJoinNewsletter from "@/components/CTAJoinNewsletter";
 import Footer from "@/components/Footer";
+import { MAX_W_CONTAINER } from "@/lib/configs/layout";
+import "./globals.css";
 
 const system = createSystem(defaultConfig, {
   theme: {
