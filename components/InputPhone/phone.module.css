@@ -1,20 +1,20 @@
-.phone__root {
-  background: var(--color-white);
-  font-size: 16px;
+.phone {
+  background-color: var(--color-white);
   height: 60px;
-  line-height: 24px;
-  padding: 0 20px;
-  border-radius: 4px;
   width: 100%;
   border: 1px solid var(--color-border);
+  border-radius: 4px;
 }
-
-.phone__root:is([data-invalid], [aria-invalid="true"], [data-state="invalid"]) {
+.phone--error {
   border: 1.5px solid var(--color-error);
 }
 
-.phone__root:is(:focus, [data-focus]) {
-  border-color: blue;
+.phone__country-toggle {
+  align-items: center;
+  height: 100%;
+  padding-inline-start: 20px;
+  cursor: pointer;
+  gap: 8px;
 }
 
 .phone__input {
@@ -28,23 +28,27 @@
   color: var(--color-error);
 }
 
-.select__trigger {
-  --chakra-border-color: var(--color-border);
-  --error-color: var(--color-error);
-  --mix-color: var(--color-placeholder);
-  --chakra-colors-fg-muted: var(--color-placeholder);
-  background: var(--color-white);
-  font-size: 16px;
-  height: 60px;
-  line-height: 24px;
-  padding: 18px 20px;
+.phone-countries__root {
+  margin-top: 6px;
+  background-color: var(--color-white);
+  width: 100%;
+  z-index: 999;
+  height: auto;
+  overflow: auto;
   border-radius: 4px;
+  position: absolute;
+  border: 1px solid var(--color-border);
+  max-height: 20rem;
 }
 
-.select__trigger:is(
-    [data-invalid],
-    [aria-invalid="true"],
-    [data-state="invalid"]
-  ) {
-  border-width: 1.5px;
+.phone-countries__input {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  outline: 0;
+  height: 44px;
+  font-size: 16px;
 }
