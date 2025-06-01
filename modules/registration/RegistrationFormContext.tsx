@@ -17,12 +17,12 @@ export const RegistrationFormProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const [currentForm, setCurrentForm] = useState<RegistrationFormData>({
-    email: "test@test.com",
-    firstName: "Test",
-    lastName: "Test",
-    gender: "Male",
-    phone: "+971555316627",
-    residenceCountry: "AE",
+    email: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    phone: "",
+    residenceCountry: "",
     termsAndCondition: false,
   });
 
