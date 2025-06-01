@@ -13,30 +13,61 @@ import classes from "./footer.module.css";
 const Footer = () => {
   return (
     <Box className={classes["footer"]}>
-      <VStack maxW={MAX_W_FOOTER_CONTAINER} mx="auto" py="40px" gap="60px">
+      <VStack
+        maxW={MAX_W_FOOTER_CONTAINER}
+        mx="auto"
+        py="40px"
+        gap="60px"
+        px={{ base: "16px", xl: 0 }}
+      >
         <Flex
+          direction={{ base: "column", md: "row" }}
+          wrap={{ md: "wrap", xl: "nowrap" }}
           align="flex-start"
           justify="space-between"
-          gap="40px"
-          transition="all"
+          gap={{ base: "20px", md: "40px" }}
           w="100%"
+          maxW={{ base: "300px", md: "800px", xl: "unset" }}
         >
-          <Flex direction="column" gap="2px">
+          {/* Column 1 - Collections */}
+          <Flex
+            direction="column"
+            gap="2px"
+            flex={{ base: "1", md: "0 0 calc(50% - 20px)", xl: "1" }}
+          >
             {FOOTER_LINKS_COLLECTIONS.map(({ label, href }, i) => (
               <FooterItem key={i} label={label} href={href} />
             ))}
           </Flex>
-          <Flex direction="column" gap="2px">
+
+          {/* Column 2 - Legals */}
+          <Flex
+            direction="column"
+            gap="2px"
+            flex={{ base: "1", md: "0 0 calc(50% - 20px)", xl: "1" }}
+          >
             {FOOTER_LINKS_LEGALS_INFORMATIONS.map(({ label, href }, i) => (
               <FooterItem key={i} label={label} href={href} />
             ))}
           </Flex>
-          <Flex direction="column" gap="2px">
+
+          {/* Column 3 - Locations */}
+          <Flex
+            direction="column"
+            gap="2px"
+            flex={{ base: "1", md: "0 0 calc(50% - 20px)", xl: "1" }}
+            display={{ base: "flex", md: "flex", xl: "flex" }}
+          >
             {FOOTER_LINKS_LOCATIONS.map(({ label, href }, i) => (
               <FooterItem key={i} label={label} href={href} />
             ))}
           </Flex>
-          <Box>
+
+          {/* Column 4 - Contact & Social */}
+          <Box
+            flex={{ base: "1", md: "0 0 calc(50% - 20px)", xl: "1" }}
+            width={{ base: "100%", xl: "auto" }}
+          >
             <Flex direction="column" mb="20px" gap="2px">
               {FOOTER_CONTACT_INFORMATION.map((text, i) => (
                 <FooterItem key={i} label={text} />

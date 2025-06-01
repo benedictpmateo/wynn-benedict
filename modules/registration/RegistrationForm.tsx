@@ -36,7 +36,7 @@ const RegistrationForm = () => {
 
   return (
     <RegistrationFormProvider>
-      <VStack direction="column" gap="40px">
+      <VStack direction="column" gap="40px" px={{ base: "16px", xl: 0 }}>
         <Box w="full">
           <Flex
             align="start"

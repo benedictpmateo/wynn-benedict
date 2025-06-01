@@ -13,24 +13,45 @@ const CTAJoinNewsletter = () => {
 
   return (
     <Box transition="all" bg="white">
-      <Box maxW={MAX_W_CONTAINER} mx="auto" px="70px" py="20px">
-        <Flex justify="space-between" align="center">
-          <Text
-            fontFamily="heading"
-            fontSize="21px"
-            lineHeight="24px"
-            color="var(--color-text-900)"
+      <Box
+        maxW={MAX_W_CONTAINER}
+        mx="auto"
+        px={{ base: "16px", lg: "70px" }}
+        py={{ base: "24px", xl: "20px" }}
+      >
+        <Flex
+          justify="space-between"
+          gap={{ base: "20px", lg: "70px" }}
+          direction={{ base: "column", lg: "row" }}
+        >
+          <Flex
+            justify="space-between"
+            gap="8px"
+            align={{ base: "flex-start", xl: "center" }}
+            direction={{ base: "column", xl: "row" }}
+            flex={1}
           >
-            Get News & Updates
-          </Text>
+            <Text
+              fontFamily="heading"
+              fontSize="21px"
+              lineHeight="24px"
+              color="var(--color-text-900)"
+            >
+              Get News & Updates
+            </Text>
 
-          <Text maxW="370px" color="var(--color-text-200)">
-            Get latest developments and exciting news on how we are shaping the
-            future!
-          </Text>
+            <Text maxW="370px" color="var(--color-text-200)">
+              Get latest developments and exciting news on how we are shaping
+              the future!
+            </Text>
+          </Flex>
 
           <form>
-            <Flex className={classes["cta__form"]} onClick={handleClick}>
+            <Flex
+              className={classes["cta__form"]}
+              onClick={handleClick}
+              direction={{ base: "column", md: "row" }}
+            >
               <Input
                 ref={inputRef}
                 className={classes["cta__input"]}

@@ -29,27 +29,28 @@ const Header = () => {
           </Link>
         </Box>
 
-        <Flex gap="8px" align="center">
-          {LANDING_PAGE_HEADER_ITEMS.map((headerItem) => (
-            <Button
-              variant="plain"
-              key={headerItem.label}
-              type="button"
-              asChild
-              py="2"
-              h="auto"
-              className="animate-link-underline hover-brown"
-              color="var(--color-black)"
-            >
-              <Link href={headerItem.href}>
-                <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
-                  {headerItem.label}
-                </Text>
-              </Link>
-            </Button>
-          ))}
-        </Flex>
-
+        <Box display={{ base: "none", xl: "block" }}>
+          <Flex gap="8px" align="center">
+            {LANDING_PAGE_HEADER_ITEMS.map((headerItem) => (
+              <Button
+                variant="plain"
+                key={headerItem.label}
+                type="button"
+                asChild
+                py="2"
+                h="auto"
+                className="animate-link-underline hover-brown"
+                color="var(--color-black)"
+              >
+                <Link href={headerItem.href}>
+                  <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
+                    {headerItem.label}
+                  </Text>
+                </Link>
+              </Button>
+            ))}
+          </Flex>
+        </Box>
         <Box>
           <Text fontSize="14px" lineHeight="17px" letterSpacing="0.5px">
             EN

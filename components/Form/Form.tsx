@@ -22,7 +22,7 @@ function Form<T>({ blocks, form }: FormProps<T>) {
             {block.fields.map((field, j) => (
               <GridItem
                 key={`block-${i}-field-${j}`}
-                colSpan={field?.columnSpan || 2}
+                colSpan={{ base: 2, md: field?.columnSpan || 2 }}
               >
                 <FormField<T> field={field} form={form} />
               </GridItem>

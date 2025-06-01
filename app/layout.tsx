@@ -1,14 +1,16 @@
 "use client";
+import CTAJoinNewsletter from "@/components/CTAJoinNewsletter";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { Toaster } from "@/components/Toaster";
+import { MAX_W_CONTAINER } from "@/lib/configs/layout";
 import {
   Box,
   ChakraProvider,
   createSystem,
   defaultConfig,
 } from "@chakra-ui/react";
-import Header from "@/components/Header";
-import CTAJoinNewsletter from "@/components/CTAJoinNewsletter";
-import Footer from "@/components/Footer";
-import { MAX_W_CONTAINER } from "@/lib/configs/layout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
 
 const system = createSystem(defaultConfig, {
@@ -33,19 +35,23 @@ const system = createSystem(defaultConfig, {
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
 
+  const queryClient = new QueryClient();
   return (
     <html suppressHydrationWarning>
       <body>
-        <ChakraProvider value={system}>
-          <Box>
-            <Header />
-            <Box mx="auto" maxW={MAX_W_CONTAINER} minH={400}>
-              {children}
+        <QueryClientProvider client={queryClient}>
+          <ChakraProvider value={system}>
+            <Box>
+              <Header />
+              <Box mx="auto" maxW={MAX_W_CONTAINER} minH={400}>
+                {children}
+              </Box>
+              <CTAJoinNewsletter />
+              <Footer />
             </Box>
-            <CTAJoinNewsletter />
-            <Footer />
-          </Box>
-        </ChakraProvider>
+            <Toaster />
+          </ChakraProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );
