@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wynn Registration - Benedict Mateo
 
-## Getting Started
+A responsive website built with Next.js, Chakra UI, and react-hook-form for form validations. This project fulfills the technical requirements for the Wynn assignment.
 
-First, run the development server:
+Demo: [https://wynn-benedict.vercel.app/](https://wynn-benedict.vercel.app/)
+
+## Features
+
+- ✅ Responsive registration form adhering to Figma design
+- ✅ Form validation with `react-hook-form` and `zod`
+- ✅ Internationalization (i18n) with `next-international`
+- ✅ API handling with `axios` and `tanstack/react-query`
+- ✅ Phone number masking with `react-imask`
+- ✅ Unit testing with Jest
+- ✅ `mockapi.io` for mock backend service
+- ✅ Production-ready build setup
+- ✅ Semantic git commit messages
+
+## Tech Stack
+
+- **Framework**: Next.js v15.3.2
+- **UI Library**: Chakra UI v3.19.1
+- **Form Handling**: react-hook-form + zod validation
+- **API**: Axios + TanStack Query
+- **Internationalization**: next-international
+- **Testing**: Jest
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+
+- Development mode:
+
+  ```bash
+  npm run dev
+  ```
+
+  Runs the app in development mode. Open http://localhost:3000 to view it.
+
+- Production build:
+  ```bash
+  npm run build
+  npm run start
+  ```
+  Creates an optimized production build and serves it.
+
+## Testing
+
+Run unit tests with:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+wynn-benedict/
+├── __mocks__           # jest mock files
+├── __tests__           # jest test files
+├── app/                # Next.js pages
+├── components/         # Reusable components
+├── hooks/              # Custom hooks
+├── lib/                # Utility functions
+├── locales/            # i18n configurations
+├── modules/            # Modular components
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design Implementation
 
-## Learn More
+The UI strictly follows the provided Figma design with attention to:
 
-To learn more about Next.js, take a look at the following resources:
+- Responsive layout
+- Consistent spacing and typography
+- Colors
+- Form validation states
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project is configured for easy deployment to platforms like:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Vercel
+- Netlify
