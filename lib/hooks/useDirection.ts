@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
+"use client";
+import { useCurrentLocale } from "@/locales/client";
+import Locale from "intl-locale-textinfo-polyfill";
+import { useMemo } from "react";
 
 function useDirection() {
-  const [dir, setDir] = useState(
-    () => document.documentElement.getAttribute("dir") || "ltr"
-  );
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const newDir = document.documentElement.getAttribute("dir") || "ltr";
-      setDir((prevDir) => {
-        return newDir !== prevDir ? newDir : prevDir;
-      });
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["dir"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const locale = useCurrentLocale();
+  const dir = useMemo(() => {
+    const { direction } = new Locale(locale).textInfo;
+    return direction;
+  }, [locale]);
 
   return dir;
 }
