@@ -1,8 +1,8 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
 import Header from "@/components/Header/Header";
 import { LANDING_PAGE_HEADER_ITEMS } from "@/lib/configs/landing-page";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 
 const renderHeader = () =>
   render(
