@@ -2,15 +2,25 @@
 import { MAX_W_CONTAINER } from "@/lib/configs/layout";
 import { useI18n } from "@/locales/client";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useForm } from "react-hook-form";
+import { toaster } from "../Toaster";
 import classes from "./cta-join-newsletter.module.css";
 
 const CTAJoinNewsletter = () => {
   const t = useI18n();
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleClick = () => {
-    inputRef.current?.focus();
+  const form = useForm({
+    defaultValues: {
+      email: "",
+    },
+  });
+  const onSubmit = () => {
+    form.reset({
+      email: "",
+    });
+    toaster.create({
+      title: "Successfully joined the newsletter",
+      type: "success",
+    });
   };
 
   return (
@@ -47,14 +57,15 @@ const CTAJoinNewsletter = () => {
             </Text>
           </Flex>
 
-          <form>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
             <Flex
               className={classes["cta__form"]}
-              onClick={handleClick}
               direction={{ base: "column", md: "row" }}
             >
               <Input
-                ref={inputRef}
+                {...form.register("email", {
+                  required: "This is required",
+                })}
                 className={classes["cta__input"]}
                 placeholder={t("newsLetter.email")}
                 variant="outline"

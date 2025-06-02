@@ -27,7 +27,7 @@ const Footer = () => {
           justify="space-between"
           gap={{ base: "20px", md: "40px" }}
           w="100%"
-          maxW={{ base: "300px", md: "800px", xl: "unset" }}
+          maxW={{ base: "768px", sm: "800px", xl: "unset" }}
         >
           {/* Column 1 - Collections */}
           <Flex
