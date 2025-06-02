@@ -2,7 +2,9 @@
 import Button from "@/components/Button";
 import InputOTP from "@/components/InputOTP";
 import { toaster } from "@/components/Toaster";
+import usePostResendOTPCode from "@/lib/api/usePostResendOTPCode";
 import usePostUserVerifyOTPCode from "@/lib/api/usePostUserVerifyOTPCode";
+import useCountdown from "@/lib/hooks/useCountdown";
 import { useI18n } from "@/locales/client";
 import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,8 +28,11 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   onClickNext,
 }) => {
   const t = useI18n();
+  const { countdown, isCounting, startCountdown } = useCountdown(60);
+
   const { currentForm } = useRegistrationForm();
   const { mutate: submitVerifyOTP, isPending } = usePostUserVerifyOTPCode();
+  const { mutate: resendOTP } = usePostResendOTPCode();
   const form = useForm({
     defaultValues: {
       otpCode: [],
@@ -54,8 +59,49 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
   };
 
   const onClickResend = () => {
-    //
+    if (!isCounting) {
+      resendOTP(
+        { email: currentForm.email },
+        {
+          onSuccess() {
+            startCountdown();
+
+            toaster.create({
+              title: "Verification code resent",
+              type: "success",
+            });
+          },
+        }
+      );
+    }
   };
+  const resendLink = isCounting ? (
+    <Text
+      textAlign="center"
+      color="var(--color-text-100)"
+      opacity={0.6}
+      cursor="not-allowed"
+    >
+      {t("otpVerify.verifyCode.resendCountdown", { seconds: countdown })}
+    </Text>
+  ) : (
+    <Text textAlign="center" color="var(--color-text-100)">
+      {t("otpVerify.verifyCode.resend", {
+        resendLink: (
+          <Link
+            as="span"
+            textDecor="underline"
+            color="var(--color-text-100)"
+            onClick={() => onClickResend()}
+            cursor={isCounting ? "not-allowed" : "pointer"}
+            opacity={isCounting ? 0.7 : 1}
+          >
+            {t("otpVerify.verifyCode.resendLink")}
+          </Link>
+        ),
+      })}
+    </Text>
+  );
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -91,20 +137,7 @@ const VerifyOTP: React.FC<VerifyOTPProps> = ({
           <Flex justify="center" w="full" mb="18px">
             <InputOTP name="otpCode" form={form} />
           </Flex>
-          <Text textAlign="center" color="var(--color-text-100)">
-            {t("otpVerify.verifyCode.resend", {
-              resendLink: (
-                <Link
-                  as="span"
-                  textDecor="underline"
-                  color="var(--color-text-100)"
-                  onClick={() => onClickResend()}
-                >
-                  {t("otpVerify.verifyCode.resendLink")}
-                </Link>
-              ),
-            })}
-          </Text>
+          {resendLink}
         </Box>
 
         <Flex gap={{ base: "12px", md: "40px" }}>

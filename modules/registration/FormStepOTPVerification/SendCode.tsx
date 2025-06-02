@@ -90,7 +90,7 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
               onValueChange={(radio) => field.onChange(radio.value)}
             >
               <Flex
-                direction={{ base: "column", md: "row" }}
+                direction={{ base: "column", sm: "row" }}
                 justify="center"
                 gap="20px"
               >

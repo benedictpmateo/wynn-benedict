@@ -64,6 +64,7 @@ export default {
       message: "لقد أرسلنا رمز التحقق إلى {value}",
       resend: "لم تستلم الرمز؟ {resendLink}",
       resendLink: "انقر لإعادة الإرسال",
+      resendCountdown: "يمكنك إعادة الإرسال بعد {seconds} ثانية",
     },
     type: {
       phone: "الهاتف",

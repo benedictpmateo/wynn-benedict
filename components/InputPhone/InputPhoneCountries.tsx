@@ -63,11 +63,6 @@ const InputPhoneCountries = ({
                 ? "var(--color-select-active)"
                 : undefined
             }
-            css={
-              item?.value === country?.value
-                ? { backgroundColor: "var(--color-select-active)" }
-                : {}
-            }
             onClick={() => {
               onChange(item);
             }}

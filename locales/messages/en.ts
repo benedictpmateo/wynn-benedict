@@ -64,6 +64,7 @@ export default {
       message: "We've sent a code to {value}",
       resend: "Didn’t get a code? {resendLink}",
       resendLink: "Click to resend.",
+      resendCountdown: "Resend available in {seconds} seconds",
     },
     type: {
       phone: "phone",
