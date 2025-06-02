@@ -33,7 +33,6 @@ const FormStepPersonalInfo: React.FC<FormStepPersonalInfoProps> = ({
   });
 
   const onSubmit = (values: RegistrationFormData) => {
-    console.log(values);
     setCurrentForm(values);
     onClickNext();
   };

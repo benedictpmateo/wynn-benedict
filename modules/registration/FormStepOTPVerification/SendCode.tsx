@@ -37,14 +37,6 @@ const SendCode: React.FC<SendCodeProps> = ({ onClickBack, onClickNext }) => {
   });
 
   const onSubmit = (values: SendCodeFormData) => {
-    switch (values.sendCode) {
-      case SendCodeTypeValue.Phone:
-        console.log(currentForm.phone);
-        break;
-      case SendCodeTypeValue.Email:
-        console.log(currentForm.email);
-        break;
-    }
     submitUser(
       {
         ...currentForm,
