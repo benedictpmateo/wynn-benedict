@@ -86,20 +86,28 @@ function InputSelect<T>({
       </ChakraSelect.Control>
 
       <ChakraSelect.Positioner>
-        <ChakraSelect.Content>
+        <ChakraSelect.Content p={0}>
           {items.map((item) => (
             <ChakraSelect.Item
               dir={dir}
               key={item.value}
               item={item.value}
               css={{
-                py: "12px",
+                py: "10px",
+                px: "14px",
                 cursor: "pointer",
                 justifyContent: "start",
+                fontSize: "16px",
+                color: "var(--color-select-text)",
               }}
+              _selected={{ bg: "var(--color-select-active)" }}
+              _hover={{ bg: "var(--color-select-active)" }}
             >
               {item?.icon} {t(item.label as never)}
-              <ChakraSelect.ItemIndicator />
+              <ChakraSelect.ItemIndicator
+                marginInlineStart="auto"
+                color="#7F56D9"
+              />
             </ChakraSelect.Item>
           ))}
         </ChakraSelect.Content>

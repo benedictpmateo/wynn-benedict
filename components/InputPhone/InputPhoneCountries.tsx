@@ -1,4 +1,5 @@
 import { CountryType } from "@/lib/configs/countries";
+import IconCheck from "@/public/assets/icons/check.svg";
 import IconSearch from "@/public/assets/icons/search.svg";
 import { Box, Flex, Input, InputGroup, Text } from "@chakra-ui/react";
 import Image from "next/image";
@@ -49,21 +50,27 @@ const InputPhoneCountries = ({
         {filteredList?.map((item: CountryType, index: number) => (
           <Flex
             key={index}
-            padding="12px 16px"
+            padding="10px 14px"
             cursor="pointer"
             fontWeight="500"
             textTransform="capitalize"
             gap="8px"
+            color="var(--color-select-text)"
+            transition="all 200ms ease"
+            _hover={{ bg: "var(--color-select-active)" }}
+            backgroundColor={
+              item?.value === country?.value
+                ? "var(--color-select-active)"
+                : undefined
+            }
+            css={
+              item?.value === country?.value
+                ? { backgroundColor: "var(--color-select-active)" }
+                : {}
+            }
             onClick={() => {
               onChange(item);
             }}
-            style={{ transition: "all .125s ease" }}
-            _hover={{ bg: "gray.50", color: "#396070" }}
-            css={
-              item?.value === country?.value
-                ? { backgroundColor: "gray.50", color: "#396070" }
-                : { color: "#ACB9C4" }
-            }
           >
             <Image
               width={20}
@@ -72,6 +79,11 @@ const InputPhoneCountries = ({
               src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${item.value}.svg`}
             />
             <Text as="span">{item.label}</Text>
+            {item?.value === country?.value && (
+              <Box marginInlineStart="auto">
+                <IconCheck />
+              </Box>
+            )}
           </Flex>
         ))}
       </Box>

@@ -28,6 +28,8 @@
   --color-placeholder: #999999;
   --color-green: #006f62;
   --color-error: #b3261e;
+  --color-select-active: #f9fafb;
+  --color-select-text: #101828;
 
   background: #f7f7f7;
   color: var(--color-black);
