@@ -8,7 +8,9 @@ function useDirection() {
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const newDir = document.documentElement.getAttribute("dir") || "ltr";
-      if (newDir !== dir) setDir(newDir);
+      setDir((prevDir) => {
+        return newDir !== prevDir ? newDir : prevDir;
+      });
     });
 
     observer.observe(document.documentElement, {
@@ -17,7 +19,7 @@ function useDirection() {
     });
 
     return () => observer.disconnect();
-  }, [dir]);
+  }, []);
 
   return dir;
 }
